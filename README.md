@@ -19,9 +19,8 @@ Don’t have a tawk.to account yet? [Create one here.](https://tawk.to/?utm_sour
 4. Copy the other contents of the `includes` folder to `<ZENCART_INSTALLATION>`/`includes`.
 
 NOTE: If you don't know what the template directory name you are using, then you can find it out by following these steps:
-1. Login to your Zen Cart admin dashboard.
-2. From the menu, Go to `Tools` > `Template Selection`.
-3. From the screen that shows `Template Selection`, look under the column that is titled `Template Directory`. You can find the name of your template directory that your Zen Cart site is currently using. That `EXACT` name is the one that you will use to replace each instance of "<YOUR_CURRENT_TEMPLATE>".
+1. Go to `Dashboard` -> `Tools` -> `Template Selection`.
+2. From the screen that shows `Template Selection`, look under the column that is titled `Template Directory`. You can find the name of your template directory that your Zen Cart site is currently using. That `EXACT` name is the one that you will use to replace each instance of `<YOUR_CURRENT_TEMPLATE>`.
 
 ## Widget Configuration
 1. Go to `Dashboard` -> `Tools` -> `tawk.to widget`.
