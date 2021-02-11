@@ -17,10 +17,10 @@ if (!defined('IS_ADMIN_FLAG')) {
 // generated!
 //
 if (function_exists('zen_register_admin_page')) {
-  if (!zen_page_key_exists('tawkToWidget')) {
-    zen_register_admin_page('tawkToWidget', 'BOX_TOOLS_TAWK_TO_WIDGET', 'FILENAME_TAWK_TO_WIDGET','' , 'tools', 'Y', 999);
-  }
-  // $page_key, $language_key, $main_page, $page_params, $menu_key, $display_on_menu, $sort_order
+    if (!zen_page_key_exists('tawkToWidget')) {
+        zen_register_admin_page('tawkToWidget', 'BOX_TOOLS_TAWK_TO_WIDGET', 'FILENAME_TAWK_TO_WIDGET','' , 'tools', 'Y', 999);
+    }
+    // $page_key, $language_key, $main_page, $page_params, $menu_key, $display_on_menu, $sort_order
 } else {
-  die('no register function');
+    die('no register function');
 }
