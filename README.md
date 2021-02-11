@@ -39,3 +39,6 @@ Delete all the files included in this module. These are the files with `tawk_to`
 - `YOUR_ADMIN_FOLDER`/`includes`/`functions`/`extra_functions`
 - `YOUR_ADMIN_FOLDER`/`includes`/`init_includes`
 - `YOUR_ADMIN_FOLDER`/`includes`/`languages`/`english`/`extra_definitions`
+
+## Frequently Asked Questions
+Visit our [Help Center](https://help.tawk.to/) for answers to FAQs
