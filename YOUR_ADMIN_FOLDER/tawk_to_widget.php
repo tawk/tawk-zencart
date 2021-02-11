@@ -8,50 +8,6 @@
 
 require('includes/application_top.php');
 
-if (isset($_GET['set'])) {
-    header('Content-Type: application/json');
-
-    if (!isset($_POST['page_id']) || !isset($_POST['widget_id'])) {
-        echo json_encode(array('success' => FALSE));
-        die();
-    }
-
-    global $db;
-    $page_id = trim($_POST['page_id']);
-    $widget_id = trim($_POST['widget_id']);
-
-    $db->Execute("insert into " . TABLE_CONFIGURATION . "
-        (configuration_key, configuration_value)
-        values('" . TAWK_TO_PAGE_ID_FIELD . "', '" . $db->prepare_input($page_id) . "')
-        on duplicate key update configuration_value='" . $db->prepare_input($page_id) . "'");
-
-    $db->Execute("insert into " . TABLE_CONFIGURATION . "
-        (configuration_key, configuration_value)
-        values('" . TAWK_TO_WIDGET_ID_FIELD . "', '" . $db->prepare_input($widget_id) . "')
-        on duplicate key update configuration_value='" . $db->prepare_input($widget_id) . "'");
-
-    echo json_encode(array('success' => TRUE));
-    die();
-}
-
-if (isset($_GET['remove'])) {
-    header('Content-Type: application/json');
-    $db->Execute("insert into " . TABLE_CONFIGURATION . "
-        (configuration_key, configuration_value)
-        values('" . TAWK_TO_PAGE_ID_FIELD . "', '')
-        on duplicate key update configuration_value=''");
-
-    $db->Execute("insert into " . TABLE_CONFIGURATION . "
-        (configuration_key, configuration_value)
-        values('" . TAWK_TO_WIDGET_ID_FIELD . "', '')
-        on duplicate key update configuration_value=''");
-
-    echo json_encode(array('success' => TRUE));
-    die();
-}
-?>
-
-<?php
 $tawk_widget_current_values = array(
     'page_id' => zen_get_configuration_key_value(TAWK_TO_PAGE_ID_FIELD),
     'widget_id' => zen_get_configuration_key_value(TAWK_TO_WIDGET_ID_FIELD)
@@ -117,7 +73,7 @@ window.addEventListener('message', function(e) {
 });
 
 function setWidget(e) {
-    jQuery.post('?set=1', {
+    jQuery.post('widget.php?set=1', {
         page_id : e.data.pageId,
         widget_id : e.data.widgetId
     }, function(r) {
@@ -131,7 +87,7 @@ function setWidget(e) {
 }
 
 function removeWidget(e) {
-    jQuery.post('?remove=1', {}, function(r) {
+    jQuery.post('widget.php?remove=1', {}, function(r) {
         if (r.success) {
             e.source.postMessage({action: 'removeDone'}, '<?php echo TAWK_TO_WIDGET_BASE_URL ?>');
         } else {
