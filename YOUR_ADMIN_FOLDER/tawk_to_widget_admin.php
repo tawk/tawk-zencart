@@ -73,7 +73,7 @@ window.addEventListener('message', function(e) {
 });
 
 function setWidget(e) {
-    jQuery.post('widget.php?set=1', {
+    jQuery.post('tawk_to_widget_manager.php?actionType=set', {
         page_id : e.data.pageId,
         widget_id : e.data.widgetId
     }, function(r) {
@@ -87,7 +87,7 @@ function setWidget(e) {
 }
 
 function removeWidget(e) {
-    jQuery.post('widget.php?remove=1', {}, function(r) {
+    jQuery.post('tawk_to_widget_manager.php?actionType=remove', {}, function(r) {
         if (r.success) {
             e.source.postMessage({action: 'removeDone'}, '<?php echo TAWK_TO_WIDGET_BASE_URL ?>');
         } else {

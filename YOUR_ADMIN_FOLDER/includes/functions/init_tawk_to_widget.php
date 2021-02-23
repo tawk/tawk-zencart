@@ -2,7 +2,6 @@
 if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');
 }
-die('init tawk');
 
 //----
 // If the installation supports admin-page registration (i.e. v1.5.0 and later), then

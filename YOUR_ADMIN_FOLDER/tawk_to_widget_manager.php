@@ -7,18 +7,47 @@
 */
 
 require('includes/application_top.php');
+header('Content-Type: application/json');
 
-if (isset($_GET['set'])) {
-    header('Content-Type: application/json');
+$request_method = $_SERVER['REQUEST_METHOD'];
+if ($request_method !== 'POST') {
+    echo json_encode(array('success' => false));
+    die();
+}
 
-    if (!isset($_POST['page_id']) || !isset($_POST['widget_id'])) {
-        echo json_encode(array('success' => FALSE));
+$actionType = $_GET['actionType'];
+if (!isset($actionType)) {
+    echo json_encode(array('success' => false));
+    die();
+}
+
+if ($actionType === 'set') {
+    $page_id = $_POST['page_id'];
+    $widget_id = $_POST['widget_id'];
+
+    if (!isset($page_id) || !isset($widget_id)) {
+        echo json_encode(array('success' => false));
         die();
     }
 
+    setWidget($page_id, $widget_id);
+} else if ($actionType === 'remove') {
+    removeWidget();
+} else {
+    echo json_encode(array('success' => false));
+    die();
+}
+
+echo json_encode(array('success' => true));
+die();
+
+/**
+ * Main Functions
+ */
+function setWidget($page_id, $widget_id) {
     global $db;
-    $page_id = trim($_POST['page_id']);
-    $widget_id = trim($_POST['widget_id']);
+    $page_id = trim($page_id);
+    $widget_id = trim($widget_id);
 
     $db->Execute("insert into " . TABLE_CONFIGURATION . "
         (configuration_key, configuration_value)
@@ -29,13 +58,10 @@ if (isset($_GET['set'])) {
         (configuration_key, configuration_value)
         values('" . TAWK_TO_WIDGET_ID_FIELD . "', '" . $db->prepare_input($widget_id) . "')
         on duplicate key update configuration_value='" . $db->prepare_input($widget_id) . "'");
-
-    echo json_encode(array('success' => TRUE));
-    die();
 }
 
-if (isset($_GET['remove'])) {
-    header('Content-Type: application/json');
+function removeWidget() {
+    global $db;
     $db->Execute("insert into " . TABLE_CONFIGURATION . "
         (configuration_key, configuration_value)
         values('" . TAWK_TO_PAGE_ID_FIELD . "', '')
@@ -45,7 +71,4 @@ if (isset($_GET['remove'])) {
         (configuration_key, configuration_value)
         values('" . TAWK_TO_WIDGET_ID_FIELD . "', '')
         on duplicate key update configuration_value=''");
-
-    echo json_encode(array('success' => TRUE));
-    die();
 }
