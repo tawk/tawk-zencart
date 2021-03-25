@@ -1,23 +1,44 @@
-tawk/tawk-zencart
-================
+# tawk.to Live Chat
 
-# About tawk.to
-tawk.to is a  free  live chat app that lets you monitor and  chat  with  visitors on your website
-or from a free customizable page. No catch. No spam. No wares. It's truly free and always will be.
+Free live chat widget for your site
 
-# Installation
-Copy files to your Zen Cart directory. Zen Cart uses customized directories for admin
-so you have to copy files from YOUR_ADMIN_FOLDER to folder where you have moved Zen Cart
-admin files. Same thing applies to templates, copy includes/templates/YOUR_TEMPLATE content
-to folder with template you are using
+## Description
 
-HINT: If you don't know what the template directory name you are using, then you can find it out by following these steps:
-	1) Login to your Zen Cart admin dashboard.
-	2) From the menu, Go to "Tools > Template Selection".
-	3) From the screen that shows Template Selection, look under the column that is titled "Template Directory". The name you find under that column is the template directory name that your Zen Cart site is currently using. That EXACT name is the one that you will use to replace each instance of "includes/templates/YOUR_TEMPLATE_FOLDER_NAME".
+The tawk.to Live Chat app makes it easy to monitor and chat with visitors on your website. Be there when they need you with unlimited messaging, ticketing and your own Knowledge Base — all 100% FREE.
 
-# Usage
-Go to administration page -> tools -> Tawk.to widget and select widget you want to use in your
-Zen Cart store, selected widget will appear in all the pages of your store.
+Compatible with all modern browsers, tawk.to was created in response to the growing need for businesses to respond in real time, with real people.
 
-If you don't have [tawk.to](https://tawk.to/?utm_source=zencart&utm_medium=link&utm_campaign=signup) account, you can always [create one for free](https://tawk.to/?utm_source=wpdirectory&utm_medium=link&utm_campaign=signup)
+Never lose another lead or sale again — tawk.to offers iOS, Android, Windows and Mac OSX apps to keep you connected wherever you go.
+
+Don’t have a tawk.to account yet? [Create one here.](https://tawk.to/?utm_source=zencart&utm_medium=link&utm_campaign=signup)
+
+## Installation
+1. Extract the zip file.
+2. Copy the contents of the `YOUR_ADMIN_FOLDER` to `<ZENCART_INSTALLATION>`/`<YOUR_ADMIN_FOLDER>`
+3. Copy the contents of the `includes`/`templates`/`YOUR_TEMPLATE` to `<ZENCART_INSTALLATION>`/`includes`/`templates`/`<YOUR_CURRENT_TEMPLATE>`.
+4. Copy the other contents of the `includes` folder to `<ZENCART_INSTALLATION>`/`includes`.
+
+NOTE: If you don't know what the template directory name you are using, then you can find it out by following these steps:
+1. Go to `Dashboard` -> `Tools` -> `Template Selection`.
+2. From the screen that shows `Template Selection`, look under the column that is titled `Template Directory`. You can find the name of your template directory that your Zen Cart site is currently using. That `EXACT` name is the one that you will use to replace each instance of `<YOUR_CURRENT_TEMPLATE>`.
+
+## Widget Configuration
+1. Go to `Dashboard` -> `Tools` -> `tawk.to widget`.
+2. Log in to your tawk.to account.
+3. Select the property and the widget you want to place on your store and click `Use selected widget`.
+4. The widget will now appear on your store.
+
+## How To Remove
+Delete all the files included in this module. These are the files with `tawk_to` in the filename and can be found under these folders:
+- `includes`/`extra_datafiles`
+- `includes`/`templates`/`YOUR_TEMPLATE`/`jscript`
+- `YOUR_ADMIN_FOLDER`
+- `YOUR_ADMIN_FOLDER`/`includes`/`auto_loaders`
+- `YOUR_ADMIN_FOLDER`/`includes`/`extra_datafiles`
+- `YOUR_ADMIN_FOLDER`/`includes`/`functions`
+- `YOUR_ADMIN_FOLDER`/`includes`/`functions`/`extra_functions`
+- `YOUR_ADMIN_FOLDER`/`includes`/`init_includes`
+- `YOUR_ADMIN_FOLDER`/`includes`/`languages`/`english`/`extra_definitions`
+
+## Frequently Asked Questions
+Visit our [Help Center](https://help.tawk.to/) for answers to FAQs

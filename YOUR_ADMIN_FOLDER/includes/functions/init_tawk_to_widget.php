@@ -2,7 +2,6 @@
 if (!defined('IS_ADMIN_FLAG')) {
     die('Illegal Access');
 }
-die('init tawk')
 
 //----
 // If the installation supports admin-page registration (i.e. v1.5.0 and later), then
@@ -17,7 +16,7 @@ die('init tawk')
 // generated!
 //
 if (function_exists('zen_register_admin_page')) {
-  if (!zen_page_key_exists('tawkToWidget')) {
-    zen_register_admin_page('tawkToWidget', 'BOX_TOOLS_TAWK_TO_WIDGET', 'FILENAME_TAWK_TO_WIDGET','' , 'tools', 'Y', 999);
-  }
+    if (!zen_page_key_exists('tawkToWidget')) {
+        zen_register_admin_page('tawkToWidget', 'BOX_TOOLS_TAWK_TO_WIDGET', 'FILENAME_TAWK_TO_WIDGET', '', 'tools', 'Y', 999);
+    }
 }
