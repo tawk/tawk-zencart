@@ -69,6 +69,10 @@ window.addEventListener('message', function(e) {
         if(e.data.action === 'removeWidget') {
             removeWidget(e);
         }
+
+        if(e.data.action === 'reloadHeight') {
+            reloadIframeHeight(e.data.height);
+        }
     }
 });
 
@@ -94,6 +98,19 @@ function removeWidget(e) {
             e.source.postMessage({action: 'removeFail'}, '<?php echo TAWK_TO_WIDGET_BASE_URL ?>');
         }
     });
+}
+
+function reloadIframeHeight(height) {
+    if (!height) {
+        return;
+    }
+
+    var iframe = jQuery('#tawkIframe');
+    if (height === iframe.height()) {
+        return;
+    }
+
+    iframe.height(height);
 }
 </script>
 <!-- body_eof //-->
