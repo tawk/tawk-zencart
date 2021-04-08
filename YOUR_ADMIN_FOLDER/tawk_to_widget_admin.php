@@ -53,7 +53,7 @@ function init()
 </div>
 <script type="text/javascript">
 var currentHost = window.location.protocol + "//" + window.location.host;
-var url = "<?php echo TAWK_TO_WIDGET_BASE_URL ?>/generic/widgets?currentWidgetId=<?php echo $tawk_widget_current_values['widget_id'] ?>&currentPageId=<?php echo $tawk_widget_current_values['page_id']?>&platform=zencart&parentDomain=" + currentHost;
+var url = "<?php echo TAWK_TO_WIDGET_BASE_URL ?>/generic/widgets?currentWidgetId=<?php echo $tawk_widget_current_values['widget_id'] ?>&currentPageId=<?php echo $tawk_widget_current_values['page_id']?>&pltf=zencart&parentDomain=" + currentHost;
 
 jQuery('#tawkIframe').attr('src', url);
 
