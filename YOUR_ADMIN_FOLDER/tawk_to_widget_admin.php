@@ -3,7 +3,7 @@
 * @package tawk.to
 * @copyright Copyright 2021 tawk.to
 * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
-* @version 1.1.0
+* @version 1.1.1
 */
 
 require('includes/application_top.php');
