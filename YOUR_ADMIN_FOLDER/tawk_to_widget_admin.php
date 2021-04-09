@@ -53,7 +53,7 @@ function init()
 </div>
 <script type="text/javascript">
 var currentHost = window.location.protocol + "//" + window.location.host;
-var url = "<?php echo TAWK_TO_WIDGET_BASE_URL ?>/generic/widgets?currentWidgetId=<?php echo $tawk_widget_current_values['widget_id'] ?>&currentPageId=<?php echo $tawk_widget_current_values['page_id']?>&parentDomain=" + currentHost;
+var url = "<?php echo TAWK_TO_WIDGET_BASE_URL ?>/generic/widgets?currentWidgetId=<?php echo $tawk_widget_current_values['widget_id'] ?>&currentPageId=<?php echo $tawk_widget_current_values['page_id']?>&pltf=zencart&parentDomain=" + currentHost;
 
 jQuery('#tawkIframe').attr('src', url);
 
@@ -68,6 +68,10 @@ window.addEventListener('message', function(e) {
 
         if(e.data.action === 'removeWidget') {
             removeWidget(e);
+        }
+
+        if(e.data.action === 'reloadHeight') {
+            reloadIframeHeight(e.data.height);
         }
     }
 });
@@ -94,6 +98,19 @@ function removeWidget(e) {
             e.source.postMessage({action: 'removeFail'}, '<?php echo TAWK_TO_WIDGET_BASE_URL ?>');
         }
     });
+}
+
+function reloadIframeHeight(height) {
+    if (!height) {
+        return;
+    }
+
+    var iframe = jQuery('#tawkIframe');
+    if (height === iframe.height()) {
+        return;
+    }
+
+    iframe.height(height);
 }
 </script>
 <!-- body_eof //-->
