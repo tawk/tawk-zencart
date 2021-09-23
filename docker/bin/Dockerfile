@@ -3,15 +3,15 @@ FROM php:7.4-apache
 ENV ZENCART_FN=zen-cart-v1.5.7c-03052021
 
 RUN apt-get update && apt-get install -y \
-       curl \
-	   wget \
-       unzip \
-       apt-utils \
-       zlib1g-dev \
-       libpng-dev \
-       libmcrypt-dev \
-       libzip-dev \
-       zip \
+    curl \
+    wget \
+    unzip \
+    apt-utils \
+    zlib1g-dev \
+    libpng-dev \
+    libmcrypt-dev \
+    libzip-dev \
+    zip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -36,7 +36,7 @@ RUN unzip -q ${ZENCART_FN}.zip \
     && chown -R www-data:www-data /var/www/html
 
 RUN echo [Date] > /usr/local/etc/php/conf.d/timezone.ini \
- && echo date.timezone = ${TIMEZONE} >> /usr/local/etc/php/conf.d/timezone.ini
+    && echo date.timezone = ${TIMEZONE} >> /usr/local/etc/php/conf.d/timezone.ini
 
 WORKDIR /var/www/html
 
