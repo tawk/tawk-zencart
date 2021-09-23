@@ -24,6 +24,7 @@ RUN a2enmod rewrite
 
 ADD https://nchc.dl.sourceforge.net/project/zencart/CURRENT%20-%20Zen%20Cart%201.5.x%20Series/${ZENCART_FN}.zip /tmp/${ZENCART_FN}.zip
 
+ARG TIMEZONE
 WORKDIR /tmp
 RUN unzip -q ${ZENCART_FN}.zip \
     && rm -f ${ZENCART_FN}.zip \
@@ -34,8 +35,8 @@ RUN unzip -q ${ZENCART_FN}.zip \
     && cp admin/includes/dist-configure.php admin/includes/configure.php \
     && chown -R www-data:www-data /var/www/html
 
-RUN echo '[Date]' > /usr/local/etc/php/conf.d/timezone.ini \
- && echo 'date.timezone = "Asia/Tokyo"' >> /usr/local/etc/php/conf.d/timezone.ini
+RUN echo [Date] > /usr/local/etc/php/conf.d/timezone.ini \
+ && echo date.timezone = ${TIMEZONE} >> /usr/local/etc/php/conf.d/timezone.ini
 
 WORKDIR /var/www/html
 

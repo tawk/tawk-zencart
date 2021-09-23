@@ -3,6 +3,8 @@ services:
   web:
     build:
       context: ./bin
+      args:
+        TIMEZONE: UTC
     ports:
       - 80:80
     depends_on:
