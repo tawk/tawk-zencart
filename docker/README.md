@@ -13,6 +13,10 @@ Docker container for ZenCart.
 
 ## Usage
 
+Build the image:
+
+- ```./build.sh```
+
 Start the container:
 
 - ```docker-compose up```

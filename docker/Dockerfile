@@ -38,6 +38,10 @@ RUN unzip -q ${ZENCART_FN}.zip \
 RUN echo [Date] > /usr/local/etc/php/conf.d/timezone.ini \
     && echo date.timezone = ${TIMEZONE} >> /usr/local/etc/php/conf.d/timezone.ini
 
+COPY --chown=www-data:www-data ./bin/tawkto/YOUR_ADMIN_FOLDER /var/www/html/admin_zc
+COPY --chown=www-data:www-data ./bin/tawkto/includes/templates/YOUR_TEMPLATE /var/www/html/includes/templates/responsive_classic/
+COPY --chown=www-data:www-data ./bin/tawkto/includes/extra_datafiles /var/www/html/includes/extra_datafiles
+
 WORKDIR /var/www/html
 
 CMD ["apache2-foreground"]
