@@ -1,6 +1,6 @@
 FROM php:7.4-apache
 
-ENV ZENCART_FN=zen-cart-v1.5.7c-03052021
+ENV ZENCART_FN=zencart-1.5.7c
 
 RUN apt-get update && apt-get install -y \
     curl \
@@ -22,7 +22,7 @@ RUN docker-php-source extract \
     && docker-php-ext-install opcache
 RUN a2enmod rewrite
 
-ADD https://nchc.dl.sourceforge.net/project/zencart/CURRENT%20-%20Zen%20Cart%201.5.x%20Series/${ZENCART_FN}.zip /tmp/${ZENCART_FN}.zip
+ADD https://github.com/zencart/zencart/archive/refs/tags/v1.5.7c.zip /tmp/${ZENCART_FN}.zip
 
 ARG TIMEZONE
 WORKDIR /tmp
