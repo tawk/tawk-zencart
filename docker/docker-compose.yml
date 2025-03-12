@@ -9,6 +9,8 @@ services:
       - 80:80
     depends_on:
       - db
+    volumes:
+      - web_data:/var/www/html
   db:
     image: mysql:5.7
     volumes:
@@ -22,3 +24,4 @@ services:
       - 3306:3306
 volumes:
   db_data:
+  web_data:
