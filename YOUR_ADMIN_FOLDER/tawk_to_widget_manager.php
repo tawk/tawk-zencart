@@ -50,25 +50,25 @@ function setWidget($page_id, $widget_id) {
     $widget_id = trim($widget_id);
 
     $db->Execute("insert into " . TABLE_CONFIGURATION . "
-        (configuration_title, configuration_key, configuration_value, configuration_description)
-        values('Tawk.to Page ID', '" . TAWK_TO_PAGE_ID_FIELD . "', '" . $db->prepare_input($page_id) . "', 'Tawk.to Page ID')
+        (configuration_key, configuration_value, configuration_title, configuration_description)
+        values('" . TAWK_TO_PAGE_ID_FIELD . "', '" . $db->prepare_input($page_id) . "', 'Tawk.to Property ID', 'Tawk.to Property ID')
         on duplicate key update configuration_value='" . $db->prepare_input($page_id) . "'");
 
     $db->Execute("insert into " . TABLE_CONFIGURATION . "
-        (configuration_title, configuration_key, configuration_value, configuration_description)
-        values('Tawk.to Widget ID', '" . TAWK_TO_WIDGET_ID_FIELD . "', '" . $db->prepare_input($widget_id) . "', 'Tawk.to Widget ID')
+        (configuration_key, configuration_value, configuration_title, configuration_description)
+        values('" . TAWK_TO_WIDGET_ID_FIELD . "', '" . $db->prepare_input($widget_id) . "', 'Tawk.to Widget ID', 'Tawk.to Widget ID')
         on duplicate key update configuration_value='" . $db->prepare_input($widget_id) . "'");
 }
 
 function removeWidget() {
     global $db;
     $db->Execute("insert into " . TABLE_CONFIGURATION . "
-        (configuration_title, configuration_key, configuration_value, configuration_description)
-        values('Tawk.to Page ID', '" . TAWK_TO_PAGE_ID_FIELD . "', '', 'Tawk.to Page ID')
+        (configuration_key, configuration_value, configuration_title, configuration_description)
+        values('" . TAWK_TO_PAGE_ID_FIELD . "', '', 'Tawk.to Property ID', 'Tawk.to Property ID')
         on duplicate key update configuration_value=''");
 
     $db->Execute("insert into " . TABLE_CONFIGURATION . "
-        (configuration_title, configuration_key, configuration_value, configuration_description)
-        values('Tawk.to Widget ID', '" . TAWK_TO_WIDGET_ID_FIELD . "', '', 'Tawk.to Widget ID')
+        (configuration_key, configuration_value, configuration_title, configuration_description)
+        values('" . TAWK_TO_WIDGET_ID_FIELD . "', '', 'Tawk.to Widget ID', 'Tawk.to Widget ID')
         on duplicate key update configuration_value=''");
 }
