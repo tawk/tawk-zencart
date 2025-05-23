@@ -3,7 +3,7 @@
 * @package tawk.to
 * @copyright Copyright 2021 tawk.to
 * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
-* @version 1.1.1
+* @version 1.2.0
 */
 
 require('includes/application_top.php');
@@ -23,26 +23,9 @@ if (strpos($tawk_widget_current_values['page_id'], '<') === 0) {
 <!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html <?php echo HTML_PARAMS; ?>>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
-<title><?php echo TITLE; ?></title>
-<link rel="stylesheet" type="text/css" href="includes/stylesheet.css">
-<link rel="stylesheet" type="text/css" href="includes/cssjsmenuhover.css" media="all" id="hoverJS">
-<script language="javascript" src="includes/menu.js"></script>
-<script language="javascript" src="includes/general.js"></script>
-<script type="text/javascript" src="<?php echo TAWK_TO_WIDGET_BASE_URL ?>/public/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript">
-function init()
-{
-    cssjsmenu('navbar');
-    if (document.getElementById) {
-        var kill = document.getElementById('hoverJS');
-        kill.disabled = true;
-    }
-}
-</script>
-
+<?php require DIR_WS_INCLUDES . 'admin_html_head.php'; ?>
 </head>
-<body onload="init()">
+<body>
 <!-- header //-->
 <?php require(DIR_WS_INCLUDES . 'header.php'); ?>
 <!-- header_eof //-->
